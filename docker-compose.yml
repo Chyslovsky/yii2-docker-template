@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+    db:
+        image: mysql:5.7
+        command: "--sql-mode=''"
+        volumes:
+            - ./.data/db/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_HOST: ${MYSQL_HOST}
+        ports:
+          - 3306:3306
+
+    php:
+        build:
+            context: application
+            dockerfile: Dockerfile.Dev
+        environment:
+            MYSQL_HOST: "${MYSQL_HOST}"
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "${MYSQL_DATABASE}"
+            MYSQL_USER: "${MYSQL_USER}"
+            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+            SERVICE_DOMAIN: "${SERVICE_DEV_DOMAIN}"
+            ENV: "${ENV}"
+            PHP_IDE_CONFIG: "serverName=${PHP_IDE_CONFIG}"
+        volumes:
+            - ./application:/var/www:Z
+        links:
+          - "db"
+
+    nginx:
+        build: nginx
+        ports:
+            - 80:80
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+            - ./application:/var/www:Z
+        links:
+          - php

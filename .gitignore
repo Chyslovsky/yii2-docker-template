@@ -1,0 +1,6 @@
+.idea/
+/logs/
+/.data/
+/.env
+/application/backend/web/files/productPlacement.csv
+/application/node_modules/
