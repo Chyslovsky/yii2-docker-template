@@ -1,0 +1,2 @@
+#0 0 * * * root /bin/bash -l -c 'source /root/.bashrc; /usr/local/bin/php /var/www/yii garbage/clear-mp-catalog >> /var/log/cron.log 2>&1'
+# An empty line is required at the end of this file for a valid cron file.
