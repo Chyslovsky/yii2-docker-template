@@ -1,6 +1,6 @@
-# Hubber Online (PHP7-FPM - NGINX - MySQL)
+#Application (PHP7-FPM - NGINX - MySQL)
 
-Hubber Online application. This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/).
+This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/).
 
 ## Installation
 1. Create a `.env` from the `.env.dist` file. Adapt it according to your symfony application
@@ -17,14 +17,14 @@ Hubber Online application. This complete stack run with docker and [docker-compo
     $ docker-compose up -d
     ```
 
-3. Update your system host file (add hubber.local)
+3. Update your system host file (add application)
 
     ```bash
     # UNIX only: get containers IP address and update host (replace IP according to your configuration)
     $ docker network inspect bridge | grep Gateway
 
     # unix only (on Windows, edit C:\Windows\System32\drivers\etc\hosts)
-    $ sudo echo "171.17.0.1 hubber.local" >> /etc/hosts
+    $ sudo echo "171.17.0.1 application" >> /etc/hosts
     ```
 
     **Note:** For **OS X**, please take a look [here](https://docs.docker.com/docker-for-mac/networking/) and for **Windows** read [this](https://docs.docker.com/docker-for-windows/#/step-4-explore-the-application-and-run-examples) (4th step).
@@ -45,7 +45,7 @@ Hubber Online application. This complete stack run with docker and [docker-compo
 
 Just run `docker-compose up -d`, then:
 
-* Hubber app: visit [hubber.local](http://hubber.local)  
+* Hubber app: visit [application](http://application)  
 
 ## Customize
 
@@ -107,7 +107,6 @@ If it's at a non-standard location, specify the URL with the DOCKER_HOST environ
 Run `chmod 777 /var/run/docker.sock`
 and `docker-compose up -d` instead.
 
-* Permission problem? See [this doc (Setting up Permission)](http://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup)
 
 * How to config Xdebug?
 Xdebug is configured out of the box!
@@ -116,5 +115,5 @@ Just config your IDE to connect port  `9001` and id key `PHPSTORM`
 ## Contributing
 
 First of all, **thank you** for contributing ♥  
-If you find any typo/misconfiguration/... please send me a PR or open an issue. You can also ping me on [twitter](https://twitter.com/_maxpou).  
+If you find any typo/misconfiguration/... please send me a PR or open an issue. You can also ping me on email chyslovsky@gmail.com).  
 Also, while creating your Pull Request on GitHub, please write a description which gives the context and/or explains why you are creating it.
