@@ -11,9 +11,6 @@ mkdir --mode=0777 /var/www/web/uploads -p
 mysql -uroot -p${MYSQL_ROOT_PASSWORD} -h ${MYSQL_HOST} -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE}  CHARACTER SET utf8; \
     GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
 
-npm install &&
-gulp &&
-
 chmod -R 0777 /var/www/web
 
 if [  "${CRONTAB}" == true ]; then
