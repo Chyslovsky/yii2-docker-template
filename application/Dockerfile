@@ -1,4 +1,4 @@
-FROM hubberonline/base
+FROM yii2-docker-template/base
 
 # Copy the project
 COPY . /var/www/
