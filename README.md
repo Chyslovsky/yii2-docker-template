@@ -3,7 +3,7 @@
 This complete stack run with docker and [docker-compose (1.7 or higher)](https://docs.docker.com/compose/).
 
 ## Installation
-1. Create a `.env` from the `.env.dist` file. Adapt it according to your symfony application
+1. Create a `.env` from the `.env.dist` file. Adapt it according to your yii application
 
     ```bash
     cp .env.dist .env
